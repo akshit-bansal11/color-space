@@ -82,7 +82,7 @@ A high-level overview of the project's structure.
 
 ```
 color-space/
-├── public/
+├── public/               # Remember to make this folder too
 └── src/
     ├── assets/           # Images, SVGs, fonts
     ├── data/             # Static data (e.g., palettes)
