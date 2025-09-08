@@ -7,11 +7,11 @@ import tinycolor from "tinycolor2";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
 //--------------------| COMPONENTS |--------------------//
-import Input from "../shared/Input.jsx";
-import Label from "../shared/Label.jsx";
-import Select from "../shared/Select.jsx";
-import Option from "../shared/Option.jsx";
-import CopyButton from "../shared/CopyButton.jsx";
+import Input from "../shared/elements/Input.jsx";
+import Label from "../shared/elements/Label.jsx";
+import Select from "../shared/elements/Select.jsx";
+import Option from "../shared/elements/Option.jsx";
+import CopyButton from "../shared/buttons/CopyButton.jsx";
 
 //--------------------| HELPERS |--------------------//
 const isHexColor = (v) => /^#([0-9a-f]{3}){1,2}$/i.test(v);

@@ -12,7 +12,7 @@ import { palettes } from "../data/palettes.js"
 
 
 //--------------------|     COMPONENT/S    |--------------------//
-import ColorBlock from "../shared/ColorBlock.jsx"
+import ColorBlock from "../shared/cards/ColorBlock.jsx"
 
 function ColorPalette({ colors, name, Icon }) {
     return (

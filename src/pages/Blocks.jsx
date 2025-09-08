@@ -8,7 +8,7 @@ import { colors } from "../data/colors.js";
 
 
 //--------------------| COMPONENTS |--------------------//
-import ColorBlock from "../shared/ColorBlock.jsx";
+import ColorBlock from "../shared/cards/ColorBlock.jsx";
 
 
 //--------------------| MAIN RENDER |--------------------//
