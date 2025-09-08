@@ -14,7 +14,7 @@ This application combines six major utilities into one seamless experience:
   * **Blocks:** Get inspired by browsing a massive, filterable grid of individual color blocks.
   * **Palettes:** Explore a curated library of beautiful, pre-built color palettes suitable for any project.
   * **Gradients:** Browse a grand library of stunning gradients, filterable by mood.
-  * **Extractor (AI):** Utilize the Gemini API to automatically extract a complete color palette from any uploaded image.
+  * **Extractor (AI):** Utilize the Gemini API to automatically extract a complete color palette from any uploaded image. (Requires user's Gemini API Key)
   * **Converter:** Instantly convert color codes between **HEX**, **RGB**, and **HSL**. Also converts gradient definitions between **Vanilla CSS** and **Tailwind CSS** classes.
 
 -----
@@ -53,19 +53,7 @@ cd color-space
 npm install
 ```
 
-**3. Set up environment variables:**
-This project requires a Google Gemini API key to power the "Extractor" feature.
-
-  * Create a new file named `.env` in the root of the project.
-  * Add your API key to it as shown below:
-
-<!-- end list -->
-
-```.env
-VITE_GEMINI_API_KEY="<your_gemini_api_key_goes_here>"
-```
-
-**4. Run the development server:**
+**3. Run the development server:**
 This command will start the Vite server, typically on `http://localhost:5173`.
 
 ```bash
@@ -94,7 +82,6 @@ color-space/
     ├── App.jsx           # Main app component
     ├── Colors.jsx        # The Actual Color Space
     └── main.jsx          # Main React entry point
-├── .env                  # Environment variables (private)
 ├── .gitignore
 ├── index.html            # HTML entry point
 ├── package.json

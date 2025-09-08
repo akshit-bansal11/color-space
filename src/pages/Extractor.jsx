@@ -1,18 +1,20 @@
-//--------------------|    DEPENDENCIES    |--------------------//
+//--------------------|    DEPENDENCIES    |--------------------//
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+//--------------------|        HOOKS       |--------------------//
+import { useCopyToClipboard } from "../hooks/useCopyToClipboard.js";
 
-//--------------------|        HOOKS       |--------------------//
-import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
+//--------------------|     COMPONENTS     |--------------------//
+// Assuming your components are in a sibling 'components' folder
+import Input from "../shared/elements/Input.jsx";
+import Label from "../shared/elements/Label.jsx";
 
-
-//--------------------|        ICONS        |--------------------//
+//--------------------|        ICONS        |--------------------//
 import { FaCheck, FaRegCopy } from "react-icons/fa6";
 import { PiUploadSimpleThin } from "react-icons/pi";
 
-
-//--------------------|    MAIN RENDER     |--------------------//
+//--------------------|    MAIN RENDER     |--------------------//
 export default function ImageColorExtractor() {
     const [image, setImage] = useState(null);
     const [palettes, setPalettes] = useState(null);
@@ -21,12 +23,16 @@ export default function ImageColorExtractor() {
     const [copied, copy] = useCopyToClipboard();
     const [copiedColor, setCopiedColor] = useState(null);
 
+    const [apiKey, setApiKey] = useState("");
+
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setImage(reader.result);
+                setPalettes(null);
+                setError(null);
                 extractColors(reader.result);
             };
             reader.readAsDataURL(file);
@@ -38,10 +44,8 @@ export default function ImageColorExtractor() {
         setError(null);
         setPalettes(null);
 
-        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
         if (!apiKey) {
-            setError("API key is missing.");
+            setError("API key is missing. Please enter your API key above.");
             setIsLoading(false);
             return;
         }
@@ -74,15 +78,22 @@ export default function ImageColorExtractor() {
             });
 
             if (!response.ok) {
-                throw new Error(`API request failed with status ${response.status}`);
+                const errorBody = await response.json();
+                const errorMsg = errorBody?.error?.message || `API request failed with status ${response.status}`;
+                throw new Error(errorMsg);
             }
 
             const result = await response.json();
+
+            if (!result.candidates || result.candidates.length === 0) {
+                throw new Error("API did not return a valid response.");
+            }
+
             const jsonText = result.candidates[0].content.parts[0].text;
             setPalettes(JSON.parse(jsonText));
 
         } catch (err) {
-            setError("Could not extract colors. Please try another image.");
+            setError(`Could not extract colors. ${err.message}. Please check your API key or try another image.`);
             console.error(err);
         } finally {
             setIsLoading(false);
@@ -96,12 +107,43 @@ export default function ImageColorExtractor() {
 
     return (
         <div className="w-full flex flex-col items-center gap-8">
-            <div className="w-full max-w-2xl bg-neutral-800/50 border-2 border-dashed border-neutral-700 rounded-xl p-8 text-center">
-                <input type="file" id="imageUpload" accept="image/*" className="hidden" onChange={handleImageChange} />
-                <label htmlFor="imageUpload" className="cursor-pointer flex flex-col items-center gap-4 text-neutral-400 hover:text-white transition-colors">
+
+            {/* API Key Input Field */}
+            <div className="w-full max-w-2xl">
+                <Label htmlFor="apiKey">Gemini API Key</Label>
+                <Input
+                    id="apiKey"
+                    type="password"
+                    className="w-full p-3 bg-neutral-900 border border-neutral-700 rounded-lg text-neutral-200 placeholder:text-neutral-500 outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Enter your API key..."
+                    value={apiKey}
+                    onChange={(e) => setApiKey(e.target.value)}
+                />
+            </div>
+
+            {/* File Upload Area */}
+            <div className={`w-full max-w-2xl bg-neutral-800/50 border-2 border-dashed border-neutral-700 rounded-xl p-8 text-center transition-all ${!apiKey ? 'opacity-50' : ''}`}>
+                <input
+                    type="file"
+                    id="imageUpload"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleImageChange}
+                    disabled={!apiKey}
+                />
+                <label
+                    htmlFor={apiKey ? "imageUpload" : undefined}
+                    className={`flex flex-col items-center gap-4 ${apiKey ? 'cursor-pointer text-neutral-400 hover:text-white transition-colors' : 'cursor-not-allowed text-neutral-600'}`}
+                >
                     <PiUploadSimpleThin size={50} />
-                    <span className="font-semibold">Click to upload an image</span>
-                    <span className="text-sm">or drag and drop</span>
+                    {apiKey ? (
+                        <>
+                            <span className="font-semibold">Click to upload an image</span>
+                            <span className="text-sm">or drag and drop</span>
+                        </>
+                    ) : (
+                        <span className="font-semibold">Please enter your API key above to upload</span>
+                    )}
                 </label>
             </div>
 
@@ -113,10 +155,10 @@ export default function ImageColorExtractor() {
 
             {isLoading &&
                 <div
-                    className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin"
+                    className="w-10 h-10 border-4 border-t-blue-500 border-neutral-700 rounded-full animate-spin"
                 ></div>
             }
-            {error && <div className="text-red-500">{error}</div>}
+            {error && <div className="text-red-500 max-w-2xl text-center">{error}</div>}
 
             {palettes && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full flex flex-col gap-6">
@@ -131,17 +173,17 @@ export default function ImageColorExtractor() {
                                         onClick={() => handleCopy(color)}
                                     >
                                         <div
-                                            className="w-20 h-20 rounded-lg cursor-pointer"
+                                            className="w-20 h-20 rounded-lg cursor-pointer shadow-md"
                                             style={{ backgroundColor: color }}
                                         >
-                                            <div className="w-full h-full flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <div className="w-full h-full flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
                                                 <AnimatePresence>
                                                     {copied && copiedColor === color ? (
                                                         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}>
                                                             <FaCheck size={24} className="text-green-400" />
                                                         </motion.div>
                                                     ) : (
-                                                        <FaRegCopy size={24} />
+                                                        <FaRegCopy size={24} className="text-neutral-200" />
                                                     )}
                                                 </AnimatePresence>
                                             </div>
