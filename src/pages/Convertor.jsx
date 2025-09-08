@@ -14,20 +14,7 @@ import Option from "../shared/elements/Option.jsx";
 import CopyButton from "../shared/buttons/CopyButton.jsx";
 
 //--------------------| HELPERS |--------------------//
-const isHexColor = (v) => /^#([0-9a-f]{3}){1,2}$/i.test(v);
-const isCssAngle = (v) => /^-?\d+(\.\d+)?deg$/i.test(v);
-
-const twToCss = {
-    "to-t": "to top",
-    "to-tr": "to top right",
-    "to-r": "to right",
-    "to-br": "to bottom right",
-    "to-b": "to bottom",
-    "to-bl": "to bottom left",
-    "to-l": "to left",
-    "to-tl": "to top left",
-};
-const cssToTw = Object.fromEntries(Object.entries(twToCss).map(([k, v]) => [v, k]));
+import { isHexColor, isCssAngle, twToCss, cssToTw } from "../utils/colorUtils.js";
 
 //--------------------| REUSABLES |--------------------//
 const ErrorMessage = ({ error }) => (

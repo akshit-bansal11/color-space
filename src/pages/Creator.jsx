@@ -18,40 +18,14 @@ import Input from "../shared/elements/Input.jsx";
 import Label from "../shared/elements/Label.jsx";
 
 
-//--------------------|     INLINE UTILS    |--------------------//
-const createGradient = (c1, c2) => `linear-gradient(135deg, ${c1}, ${c2})`;
-const isDuplicate = (list, item) => list.includes(item);
-
+//--------------------|     UTILS    |--------------------//
+import { createGradient, isDuplicate } from "../utils/colorUtils.js";
 
 //--------------------|     INLINE HOOKS    |--------------------//
-const usePalette = (max = 10) => {
-    const [palette, setPalette] = useState([]);
+import { usePalette} from "../hooks/usePalette.js";
+import { useGradient } from "../hooks/useGradient.js";
 
-    const addColor = (c) => {
-        if (palette.length < max && !isDuplicate(palette, c)) {
-            setPalette((prev) => [...prev, c]);
-        }
-    };
 
-    const removeColor = (c) => setPalette((prev) => prev.filter((x) => x !== c));
-
-    return { palette, addColor, removeColor };
-};
-
-const useGradients = () => {
-    const [gradients, setGradients] = useState([]);
-
-    const addGradient = (g) => {
-        if (!isDuplicate(gradients, g)) {
-            setGradients((prev) => [...prev, g]);
-        }
-    };
-
-    const removeGradient = (g) =>
-        setGradients((prev) => prev.filter((x) => x !== g));
-
-    return { gradients, addGradient, removeGradient };
-};
 
 const useClipboard = () => {
     const [copiedValue, setCopiedValue] = useState(null);
@@ -193,7 +167,7 @@ export default function Creator() {
     const [secondColor, setSecondColor] = useState("#e74c3cff");
 
     const { palette, addColor, removeColor } = usePalette();
-    const { gradients, addGradient, removeGradient } = useGradients();
+    const { gradients, addGradient, removeGradient } = useGradient();
     const { copied, copiedValue, handleCopy } = useClipboard();
 
     return (
