@@ -1,33 +1,25 @@
 # Akshit's Color Space
 
-[](https://opensource.org/licenses/MIT)
-[](https://reactjs.org/)
-[](https://vitejs.dev/)
-[](https://tailwindcss.com/)
-
 Akshit's Color Space is a comprehensive, all-in-one web application designed for designers and developers. It provides a full suite of tools to create, browse, extract, and convert colors and gradients, all in one centralized hub.
 
 ### ✨ **Live Demo:** [color-space-akshit-bansal11.vercel.app](https://color-space-akshit-bansal11.vercel.app/)
 
-*(Optional: Consider adding a screenshot or GIF of the app in action here\!)*
-\`\`
-
 -----
 
-## 🚀 Key Features
+## Key Features
 
 This application combines six major utilities into one seamless experience:
 
   * **Creator:** Visually design and build your own custom color palettes and multi-step gradients from scratch.
   * **Blocks:** Get inspired by browsing a massive, filterable grid of individual color blocks.
   * **Palettes:** Explore a curated library of beautiful, pre-built color palettes suitable for any project.
-  * **Gradients:** Browse a grand library of stunning gradients, filterable by mood and color.
+  * **Gradients:** Browse a grand library of stunning gradients, filterable by mood.
   * **Extractor (AI):** Utilize the Gemini API to automatically extract a complete color palette from any uploaded image.
   * **Converter:** Instantly convert color codes between **HEX**, **RGB**, and **HSL**. Also converts gradient definitions between **Vanilla CSS** and **Tailwind CSS** classes.
 
 -----
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 This project is built using a modern frontend stack:
 
@@ -38,7 +30,7 @@ This project is built using a modern frontend stack:
 
 -----
 
-## 🔧 Running Locally (For Developers)
+## Running Locally (For Developers)
 
 Want to run the project on your local machine? Follow these simple steps.
 
@@ -51,7 +43,7 @@ Make sure you have [Node.js](https://nodejs.org/en/) (v18 or higher recommended)
 **1. Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/color-space.git
+git clone https://github.com/akshit-bansal11/color-space.git
 cd color-space
 ```
 
@@ -84,23 +76,23 @@ You can now open the app in your browser and start building\!
 
 -----
 
-## 📁 Project Folder Structure
+## Project Folder Structure
 
 A high-level overview of the project's structure.
 
 ```
 color-space/
-├── public/               # Static assets
+├── public/
 └── src/
     ├── assets/           # Images, SVGs, fonts
-    ├── data/             # Static data (e.g., JSON for palettes)
+    ├── data/             # Static data (e.g., palettes)
     ├── hooks/            # Custom React hooks
     ├── pages/            # Main application views/components
     ├── shared/           # Reusable UI components (buttons, inputs)
     ├── styles/           # Global CSS (index.css)
     ├── utils/            # Utility/helper functions
     ├── App.jsx           # Main app component
-    ├── Colors.jsx        # (Specific components)
+    ├── Colors.jsx        # The Actual Color Space
     └── main.jsx          # Main React entry point
 ├── .env                  # Environment variables (private)
 ├── .gitignore
