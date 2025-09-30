@@ -3,10 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 
-//--------------------|        HOOKS       |--------------------//
-import { useCopyToClipboard } from "../hooks/useCopyToClipboard.js";
-
-
 //--------------------|        DATA        |--------------------//
 import { palettes } from "../data/palettes.js"
 
@@ -14,7 +10,7 @@ import { palettes } from "../data/palettes.js"
 //--------------------|     COMPONENT/S    |--------------------//
 import ColorBlock from "../shared/cards/ColorBlock.jsx"
 
-function ColorPalette({ colors, name, Icon }) {
+function ColorPalette({ colors, name }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +25,6 @@ function ColorPalette({ colors, name, Icon }) {
             </div>
             <div className="p-3 flex flex-col items-center gap-2 bg-neutral-800">
                 <div className="flex gap-2 items-center mb-4 mt-4">
-                    {Icon && <Icon className="h-8 w-8 text-neutral-200" />}
                     {name && <p className="flex gap-10 text-sm font-semibold text-neutral-200">{name}</p>}
                 </div>
 
@@ -56,7 +51,7 @@ export default function CuratedPalettes() {
         return acc;
     }, {});
 
-    const categoryOrder = ["2-color", "3-color", "4-color", "5-color", "Popular Brands"];
+    const categoryOrder = ["6-color", "5-color", "4-color", "3-color", "2-color", "Popular Brands"];
     const sortedCategories = categoryOrder.filter(cat => groupedPalettes[cat]);
 
     return (
