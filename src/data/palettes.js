@@ -94,7 +94,7 @@ export const palettes = [
     { name: "Frosted", colors: ["#2A3439", "#4B5963", "#707C84", "#A9C0CE", "#DDE7ED", "#E6E6E6"], category: "6-color" },
     { name: "Sensual", colors: ["#1A1110", "#6A0019", "#95897E", "#D9B6B0", "#E1DCD5", "#F7F5F2"], category: "6-color" },
     { name: "Regal", colors: ["#11100F", "#5D1C34", "#A67D44", "#899481", "#CDBCAB", "#EFE9E1"], category: "6-color" },
-    { name: "Nude", colors: ["#3A2D28", "#A48374", "#CBAD8D", "#D1C7BD", "#EBE3DB", "#F1EDE6"], category: "6-color" },
+    { name: "Sanddune", colors: ["#3A2D28", "#A48374", "#CBAD8D", "#D1C7BD", "#EBE3DB", "#F1EDE6"], category: "6-color" },
     { name: "Dusk", colors: ["#3D2321", "#6E3F40", "#9C5B45", "#9BA9B3", "#D0D7E0", "#F1F1F1"], category: "6-color" },
 
     // Popular Brands
