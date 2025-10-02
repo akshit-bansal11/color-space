@@ -42,6 +42,17 @@ function ColorPalette({ colors, name }) {
 //--------------------|    MAIN RENDER     |--------------------//
 export default function CuratedPalettes() {
 
+    // By SYNTX: Fisher-Yates shuffle algorithm implementation
+    // Randomizes palette order within each category while preserving category sequence
+    const shuffleArray = (array) => {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    };
+
     const groupedPalettes = palettes.reduce((acc, palette) => {
         const { category } = palette;
         if (!acc[category]) {
@@ -64,7 +75,8 @@ export default function CuratedPalettes() {
                     </h2>
 
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {groupedPalettes[category].map((palette, index) => (
+                        {/* By SYNTX: Shuffle palettes within current category for random display order */}
+                        {shuffleArray(groupedPalettes[category]).map((palette, index) => (
                             <ColorPalette key={index} {...palette} />
                         ))}
                     </div>

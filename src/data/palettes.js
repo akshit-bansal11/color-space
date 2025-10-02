@@ -14,6 +14,22 @@ export const palettes = [
     { name: "Pastel Purple & Forest Green", colors: ["#BBBFEC", "#06530B"], category: "2-color" },
     { name: "Ivory & Olive Green", colors: ["#FEF9DB", "#574C00"], category: "2-color" },
     { name: "Beige & Orange", colors: ["#F0E7D6", "#EA2E00"], category: "2-color" },
+    { name: "Vanilla & Teal", colors: ["#F3E5C3", "#174E4F"], category: "2-color" },
+    { name: "Lime & Evergreen", colors: ["#8ED968", "#103C1F"], category: "2-color" },
+    { name: "Mint & Mustard", colors: ["#D7EAE2", "#4B421B"], category: "2-color" },
+    { name: "Burgundy & Sand", colors: ["#5C0E14", "#F0E193"], category: "2-color" },
+    { name: "Sage & Olive", colors: ["#ABC8A2", "#1A2417"], category: "2-color" },
+    { name: "Ocean & Sky", colors: ["#2772A0", "#CCDDEA"], category: "2-color" },
+    { name: "Cherry & Peach", colors: ["#E84F5E", "#FCDFC5"], category: "2-color" },
+    { name: "Sunset Adventure", colors: ["#FE7F2D", "#233d4d"], category: "2-color" },
+    { name: "Lavender Magic", colors: ["#f492f0", "#5E429C"], category: "2-color" },
+    { name: "Electric Lemonade", colors: ["#B8FB3C", "#03045E"], category: "2-color" },
+    { name: "Wisteria & Cream", colors: ["#C69FD5", "#FCFDC8"], category: "2-color" },
+    { name: "Crimson Nights", colors: ["#D7263D", "#02182B"], category: "2-color" },
+    { name: "Vanilla & Moonstone", colors: ["#FFEBAF", "#4C9DB0"], category: "2-color" },
+    { name: "Claret & Pink", colors: ["#670626", "#FFBDC5"], category: "2-color" },
+    { name: "Dreamy Ocean", colors: ["#eaebed", "#006989"], category: "2-color" },
+    { name: "Ash & Eggshell", colors: ["#9D9D8C", "#ECE6D4"], category: "2-color" },
 
     // 3-Color
     { name: "Fiery Sunset", colors: ["#e74c3c", "#f39c12", "#f1c40f"], category: "3-color" },
@@ -32,12 +48,12 @@ export const palettes = [
     { name: "Pastel Punch", colors: ["#F8DCD3", "#82AAF2", "#FB6A4C"], category: "3-color" },
     { name: "Muted Navy", colors: ["#F6F3ED", "#C2CBD3", "#313851"], category: "3-color" },
 
-    
+
     // 4-Color
     { name: "Winter Sky", colors: ["#2c3e50", "#3498db", "#ecf0f1", "#95a5a6"], category: "4-color" },
     { name: "Evergreen Forest", colors: ["#16a085", "#27ae60", "#2ecc71", "#34495e"], category: "4-color" },
     { name: "Clay & Steel", colors: ["#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"], category: "4-color" },
-    
+
     // 5-Color
     { name: "Velvet Blossom", colors: ["#735D78", "#E9BBBE", "#EBA5A2", "#246A73", "#231C36"], category: "5-color" },
     { name: "Lavender Hush", colors: ["#9B9E99", "#BBA4BD", "#DBCFE6", "#E9DDEB", "#ECEBF5"], category: "5-color" },
@@ -49,7 +65,29 @@ export const palettes = [
     { name: "Metropolis Night", colors: ["#272727", "#484848", "#ffb900", "#009eff", "#d7d7d7"], category: "5-color" },
     { name: "Carnival Brights", colors: ["#f0932b", "#eb4d4b", "#6ab04c", "#4834d4", "#30336b"], category: "5-color" },
     { name: "Spring Sorbet", colors: ["#a29bfe", "#ffeaa7", "#fab1a0", "#74b9ff", "#55efc4"], category: "5-color" },
-    
+    { name: "Earthy Greens", colors: ["#6B705C", "#A5A58D", "#B7B7A4", "#DDBEA9", "#FFE8D6"], category: "5-color" },
+    { name: "Muted Earth", colors: ["#232020", "#626C66", "#918B76", "#ACA885", "#E1CA96"], category: "5-color" },
+    { name: "Warm Taupe", colors: ["#5E3719", "#735238", "#886E58", "#9D8977", "#B2A496"], category: "5-color" },
+    { name: "Autumn Forest", colors: ["#232020", "#553739", "#955E42", "#9C914F", "#748E54"], category: "5-color" },
+    { name: "Spiced Plum", colors: ["#320A28", "#511730", "#8E443D", "#E08E45", "#FACFAD"], category: "5-color" },
+    { name: "Tropical Harmony", colors: ["#023A38", "#06585B", "#B767AE", "#FF7742", "#FFC847"], category: "5-color" },
+    { name: "Golden Shore", colors: ["#017D7D", "#509494", "#98C1C1", "#E0E9E9", "#F6C468"], category: "5-color" },
+    { name: "Aqua Serenity", colors: ["#026968", "#1B8887", "#3BA7A6", "#74CECD", "#B9E2E2"], category: "5-color" },
+    { name: "Bubble Pop", colors: ["#0B585C", "#0B8488", "#DDE8EA", "#DC9EC8", "#E24C4F"], category: "5-color" },
+    { name: "Urban Garden", colors: ["#094648", "#056362", "#4B844B", "#B4B236", "#DCE2C0"], category: "5-color" },
+    { name: "Coral Shore", colors: ["#0F595F", "#347377", "#6C989A", "#E7E0DA", "#F4AD8E"], category: "5-color" },
+    { name: "Retro Romance", colors: ["#2A6F73", "#66908F", "#D6E2E3", "#D3C5C6", "#C3909B"], category: "5-color" },
+    { name: "Mountain Lodge", colors: ["#0D6663", "#519390", "#A6C0BE", "#DAE6E1", "#7C5D4F"], category: "5-color" },
+    { name: "Fresh Joy", colors: ["#115A61", "#0F7476", "#3B9495", "#DFEC95", "#CE8FDB"], category: "5-color" },
+    { name: "Retro Soul", colors: ["#194A4D", "#318583", "#EBE8DD", "#E3BE68", "#764B4B"], category: "5-color" },
+    { name: "Summer Splash (Blue)", colors: ["#006C70", "#20929B", "#E6F3E4", "#CFED76", "#356FEA"], category: "5-color" },
+    { name: "Summer Splash (Pink)", colors: ["#126468", "#2B7B83", "#E2896D", "#E6A9B5", "#FDEEAE"], category: "5-color" },
+    { name: "Summer Lilac", colors: ["#0B6568", "#3F959D", "#67BEC2", "#E6C6F8", "#FDE2F8"], category: "5-color" },
+    { name: "Mint Harmony", colors: ["#007F7D", "#0E9A98", "#1FD0AF", "#85E7C8", "#C5EDE0"], category: "5-color" },
+    { name: "Tokyo Pop", colors: ["#08464A", "#0C757D", "#3A9CA3", "#EEDDEB", "#FC8FD6"], category: "5-color" },
+    { name: "Plum Rose", colors: ["#1A141B", "#513953", "#E4DBDE", "#DF94B2", "#DB1C39"], category: "5-color" },
+    { name: "Navy Terracotta", colors: ["#2C3646", "#BF4C4E", "#EFEADF", "#EDADC4", "#C98F62"], category: "5-color" },
+
     // 6-color
     { name: "Fresh", colors: ["#2B1B17", "#5C4033", "#6A7B54", "#7DA1B1", "#D8DCD6", "#F3EFE9"], category: "6-color" },
     { name: "Spiced", colors: ["#2B1E1A", "#861D1D", "#BF6F31", "#F4B34C", "#EBCCBA", "#E8E2D1"], category: "6-color" },
@@ -58,7 +96,7 @@ export const palettes = [
     { name: "Regal", colors: ["#11100F", "#5D1C34", "#A67D44", "#899481", "#CDBCAB", "#EFE9E1"], category: "6-color" },
     { name: "Nude", colors: ["#3A2D28", "#A48374", "#CBAD8D", "#D1C7BD", "#EBE3DB", "#F1EDE6"], category: "6-color" },
     { name: "Dusk", colors: ["#3D2321", "#6E3F40", "#9C5B45", "#9BA9B3", "#D0D7E0", "#F1F1F1"], category: "6-color" },
-    
+
     // Popular Brands
     { name: "Spotify", colors: ["#1EDD60", "#1B1716"], category: "Popular Brands" },
     { name: "IKEA", colors: ["#0058A3", "#FFDB00"], category: "Popular Brands" },
