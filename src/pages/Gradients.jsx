@@ -1,11 +1,11 @@
 //--------------------|    DEPENDENCIES    |--------------------//
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 
 //--------------------|        HOOKS       |--------------------//
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard.js";
-
+import { useShuffle } from "../hooks/useShuffle.js";
 
 //--------------------|        ICONS        |--------------------//
 import { FaCheck, FaRegCopy } from "react-icons/fa6";
@@ -74,13 +74,11 @@ function GradientCard({ name, feel, tailwind, css }) {
                 className="absolute bottom-0 left-0 w-full h-full backdrop-brightness-50 backdrop-grayscale p-4 flex flex-col justify-between"
             >
                 <h3 className="lg:text-xl font-extrabold font-chillax text-white">{name}</h3>
-
                 <div className="flex gap-2">
                     <span className="text-xs bg-neutral-700 text-neutral-300 px-2 py-1 rounded-full">
                         {feel}
                     </span>
                 </div>
-
                 {/* Copy Buttons */}
                 <div className="mt-2 flex gap-2">
                     {tailwind && (
@@ -93,9 +91,7 @@ function GradientCard({ name, feel, tailwind, css }) {
                                 {copiedKey === tailwind ? (
                                     <motion.span
                                         key="copied-tw"
-                                        initial={entry}
-                                        animate={center}
-                                        exit={exit}
+                                        initial={entry} animate={center} exit={exit}
                                         transition={{ duration: 0.15 }}
                                         className="flex items-center gap-2 text-green-400"
                                     >
@@ -104,9 +100,7 @@ function GradientCard({ name, feel, tailwind, css }) {
                                 ) : (
                                     <motion.span
                                         key="copy-tw"
-                                        initial={entry}
-                                        animate={center}
-                                        exit={exit}
+                                        initial={entry} animate={center} exit={exit}
                                         transition={{ duration: 0.15 }}
                                         className="flex items-center gap-2"
                                     >
@@ -116,7 +110,6 @@ function GradientCard({ name, feel, tailwind, css }) {
                             </AnimatePresence>
                         </button>
                     )}
-
                     {css && (
                         <button
                             onClick={() => handleCopy(css)}
@@ -127,9 +120,7 @@ function GradientCard({ name, feel, tailwind, css }) {
                                 {copiedKey === css ? (
                                     <motion.span
                                         key="copied-css"
-                                        initial={entry}
-                                        animate={center}
-                                        exit={exit}
+                                        initial={entry} animate={center} exit={exit}
                                         transition={{ duration: 0.15 }}
                                         className="flex items-center gap-2 text-green-400"
                                     >
@@ -138,9 +129,7 @@ function GradientCard({ name, feel, tailwind, css }) {
                                 ) : (
                                     <motion.span
                                         key="copy-css"
-                                        initial={entry}
-                                        animate={center}
-                                        exit={exit}
+                                        initial={entry} animate={center} exit={exit}
                                         transition={{ duration: 0.15 }}
                                         className="flex items-center gap-2"
                                     >
@@ -156,7 +145,6 @@ function GradientCard({ name, feel, tailwind, css }) {
     );
 }
 
-
 //--------------------|    MAIN RENDER     |--------------------//
 export default function GradientsBrowser() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -164,11 +152,17 @@ export default function GradientsBrowser() {
 
     const feels = ["All", ...new Set(gradients.map(g => g.feel))];
 
-    const filteredGradients = gradients.filter(g => {
-        const nameMatch = g.name.toLowerCase().includes(searchTerm.toLowerCase());
-        const feelMatch = feelFilter === 'All' || g.feel === feelFilter;
-        return nameMatch && feelMatch;
-    });
+    // Filter gradients based on search and feel
+    const filteredGradients = useMemo(() => {
+        return gradients.filter(g => {
+            const nameMatch = g.name.toLowerCase().includes(searchTerm.toLowerCase());
+            const feelMatch = feelFilter === 'All' || g.feel === feelFilter;
+            return nameMatch && feelMatch;
+        });
+    }, [searchTerm, feelFilter]);
+
+    // Shuffle the filtered list
+    const shuffledGradients = useShuffle(filteredGradients);
 
     return (
         <div className="w-full flex flex-col gap-8">
@@ -190,8 +184,8 @@ export default function GradientsBrowser() {
                 </div>
             </div>
             <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <AnimatePresence>
-                    {filteredGradients.map((gradient, index) => (
+                <AnimatePresence mode="wait">
+                    {shuffledGradients.map((gradient, index) => (
                         <GradientCard key={`${gradient.name}-${index}`} {...gradient} />
                     ))}
                 </AnimatePresence>

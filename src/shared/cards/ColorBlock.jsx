@@ -12,8 +12,6 @@ export default function ColorBlock({ color, className, iconSize, hover }) {
 
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
             whileHover={hover}
             className={`relative aspect-square overflow-hidden cursor-pointer group 
                 ${className}
