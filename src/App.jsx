@@ -5,11 +5,13 @@ import { motion } from 'framer-motion';
 
 //--------------------| COMPONENTS |--------------------//
 import Colors from './Colors.jsx';
+import InitialDialogue from './ui/InitialDialogue.jsx';
 
 function App() {
 
   return (
     <BrowserRouter>
+      <InitialDialogue/>
       <motion.div
         className="flex flex-col font-thin justify-center cursor-default items-center lg:gap-10 md:gap-7 gap-4 min-h-screen"
         style={{ minHeight: '100vh', height: '100%', position: 'relative' }}

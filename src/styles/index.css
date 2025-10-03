@@ -2,22 +2,22 @@
 
 @font-face {
     font-family: "Chillax";
-    src: url("../assets/fonts/Chillax-Extralight.otf");
+    src: url("/fonts/Chillax-Extralight.otf");
 }
 
 @font-face {
     font-family: "Clash";
-    src: url("../assets//fonts/ClashGrotesk-Extralight.otf");
+    src: url("/fonts/ClashGrotesk-Extralight.otf");
 }
 
 @font-face {
     font-family: "Paragraph";
-    src: url("../assets/fonts/Paragraph.otf");
+    src: url("/fonts/Paragraph.otf");
 }
 
 @font-face {
     font-family: "Logote";
-    src: url("../assets//fonts/logote.otf");
+    src: url("//fonts/logote.otf");
 }
 
 @theme {

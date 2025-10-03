@@ -8,7 +8,7 @@ import { palettes } from "../data/palettes.js"
 
 
 //--------------------|     COMPONENT/S    |--------------------//
-import ColorBlock from "../shared/cards/ColorBlock.jsx"
+import ColorBlock from "../ui/shared/cards/ColorBlock.jsx"
 
 function ColorPalette({ colors, name }) {
     return (
@@ -20,7 +20,7 @@ function ColorPalette({ colors, name }) {
         >
             <div className="flex h-32">
                 {colors.map((color, index) => (
-                    <ColorBlock className={"w-full h-full"} color={color} iconSize={"text-3xl"} />
+                    <ColorBlock className={"w-full h-full"} color={color} key={index} iconSize={"text-3xl"} />
                 ))}
             </div>
             <div className="p-3 flex flex-col items-center gap-2 bg-neutral-800">
