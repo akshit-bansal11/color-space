@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function InitialDialogue() {
+export default function InitialDialogue() {    
     const [isVisible, setIsVisible] = useState(true);
     const [error, setError] = useState(''); // State to hold the validation error message
 

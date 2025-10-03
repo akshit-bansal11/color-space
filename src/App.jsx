@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import Colors from './Colors.jsx';
 import InitialDialogue from './ui/InitialDialogue.jsx';
 
+localStorage.clear();
+
 function App() {
 
   return (
