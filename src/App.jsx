@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 //--------------------| COMPONENTS |--------------------//
-import Colors from './Colors.jsx';
-import InitialDialogue from './ui/InitialDialogue.jsx';
+import Colors from './ColorSpace.jsx';
+import InitialDialogue from './components/popups/InitialDialogue.jsx';
 
 localStorage.clear();
 

@@ -8,7 +8,7 @@ import { palettes } from "../data/palettes.js"
 
 
 //--------------------|     COMPONENT/S    |--------------------//
-import ColorBlock from "../ui/shared/cards/ColorBlock.jsx"
+import ColorBlock from "../components/cards/ColorBlock.jsx"
 
 function ColorPalette({ colors, name }) {
     return (

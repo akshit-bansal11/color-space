@@ -9,7 +9,7 @@ import { useShuffle } from "../hooks/useShuffle.js";
 import { colors } from "../data/colors.js";
 
 //--------------------| COMPONENTS |--------------------//
-import ColorBlock from "../ui/shared/cards/ColorBlock.jsx";
+import ColorBlock from "../components/cards/ColorBlock.jsx";
 
 //--------------------| MAIN RENDER |--------------------//
 export default function ColorBlocksBrowser() {

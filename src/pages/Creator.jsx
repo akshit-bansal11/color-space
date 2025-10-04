@@ -13,9 +13,9 @@ import { useCopyToClipboard } from "../hooks/useCopyToClipboard.js";
 
 
 //--------------------|     COMPONENT/S     |--------------------//
-import ColorBlock from "../ui/shared/cards/ColorBlock.jsx"
-import Input from "../ui/shared/elements/Input.jsx";
-import Label from "../ui/shared/elements/Label.jsx";
+import ColorBlock from "../components/cards/ColorBlock.jsx"
+import Input from "../components/form/Input.jsx";
+import Label from "../components/form/Label.jsx";
 
 
 //--------------------|     UTILS    |--------------------//

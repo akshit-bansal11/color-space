@@ -8,7 +8,7 @@ import { FaCheck, FaRegCopy } from "react-icons/fa6";
 
 
 //--------------------|        HOOKS       |--------------------//
-import { useCopyToClipboard } from "../../../hooks/useCopyToClipboard";
+import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 
 
 //--------------------|    MAIN RENDER     |--------------------//

@@ -7,11 +7,11 @@ import tinycolor from "tinycolor2";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
 //--------------------| COMPONENTS |--------------------//
-import Input from "../ui/shared/elements/Input.jsx";
-import Label from "../ui/shared/elements/Label.jsx";
-import Select from "../ui/shared/elements/Select.jsx";
-import Option from "../ui/shared/elements/Option.jsx";
-import CopyButton from "../ui/shared/buttons/CopyButton.jsx";
+import Input from "../components/form/Input.jsx";
+import Label from "../components/form/Label.jsx";
+import Select from "../components/form/Select.jsx";
+import Option from "../components/form/Option.jsx";
+import CopyButton from "../components/buttons/CopyButton.jsx";
 
 //--------------------| HELPERS |--------------------//
 import { isHexColor, isCssAngle, twToCss, cssToTw } from "../utils/colorUtils.js";
