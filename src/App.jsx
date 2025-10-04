@@ -9,11 +9,19 @@ import InitialDialogue from './components/popups/InitialDialogue.jsx';
 
 localStorage.clear();
 
+//For local only
+// const apiKey = import.meta.env.VITE_GEMINI_API_KEY; 
+
 function App() {
 
   return (
     <BrowserRouter>
+      {/* For local*/}
+      {/* {!apiKey && <InitialDialogue/>} */}
+      
+      {/* For Web */}
       <InitialDialogue/>
+      
       <motion.div
         className="flex flex-col font-thin justify-center cursor-default items-center lg:gap-10 md:gap-7 gap-4 min-h-screen"
         style={{ minHeight: '100vh', height: '100%', position: 'relative' }}
