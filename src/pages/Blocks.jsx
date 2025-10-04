@@ -21,7 +21,7 @@ export default function ColorBlocksBrowser() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="
-                w-full grid gap-4
+                w-full grid lg:gap-4 md:gap-3 sm:gap-2 not-sm:gap-1
                 grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12
             "
         >
