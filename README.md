@@ -4,31 +4,32 @@ Akshit's Color Space is a comprehensive, all-in-one web application designed for
 
 ### ✨ **Live Demo:** [color-space-akshit-bansal11.vercel.app](https://color-space-akshit-bansal11.vercel.app/)
 
------
+---
 
 ## Key Features
 
 This application combines six major utilities into one seamless experience:
 
-  * **Creator:** Visually design and build your own custom color palettes and multi-step gradients from scratch.
-  * **Blocks:** Get inspired by browsing a massive, filterable grid of individual color blocks.
-  * **Palettes:** Explore a curated library of beautiful, pre-built color palettes suitable for any project.
-  * **Gradients:** Browse a grand library of stunning gradients, filterable by mood.
-  * **Extractor (AI):** Utilize the Gemini API to automatically extract a complete color palette from any uploaded image. (Requires user's Gemini API Key)
-  * **Converter:** Instantly convert color codes between **HEX**, **RGB**, and **HSL**. Also converts gradient definitions between **Vanilla CSS** and **Tailwind CSS** classes.
+- **Creator:** Visually design and build your own custom color palettes and multi-step gradients from scratch.
+- **Blocks:** Get inspired by browsing a massive, filterable grid of individual color blocks.
+- **Palettes:** Explore a curated library of beautiful, pre-built color palettes suitable for any project.
+- **Gradients:** Browse a grand library of stunning gradients, filterable by mood.
+- **Extractor (AI):** Utilize the Gemini API to automatically extract a complete color palette from any uploaded image. (Requires user's Gemini API Key)
+- **Converter:** Instantly convert color codes between **HEX**, **RGB**, and **HSL**. Also converts gradient definitions between **Vanilla CSS** and **Tailwind CSS** classes.
 
------
+---
 
 ## Tech Stack
 
 This project is built using a modern frontend stack:
 
-  * **Framework:** [React.js](https://reactjs.org/)
-  * **Build Tool:** [Vite](https://vitejs.dev/)
-  * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-  * **AI:** [Google Gemini API](https://ai.google.dev/) (for the Extractor feature)
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Core:** [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/)
+- **AI:** [Google Gemini API](https://ai.google.dev/) (for the Extractor feature)
+- **Package Manager:** [pnpm](https://pnpm.io/)
 
------
+---
 
 ## Running Locally (For Developers)
 
@@ -36,7 +37,7 @@ Want to run the project on your local machine? Follow these simple steps.
 
 ### 1\. Prerequisites
 
-Make sure you have [Node.js](https://nodejs.org/en/) (v18 or higher recommended) and `npm` installed on your machine.
+Make sure you have [Node.js](https://nodejs.org/en/) (v18 or higher recommended) and `pnpm` installed on your machine.
 
 ### 2\. Installation & Setup
 
@@ -50,19 +51,21 @@ cd color-space
 **2. Install dependencies:**
 
 ```bash
-npm install
+pnpm install
 ```
 
 **3. Run the development server:**
-This command will start the Vite server, typically on `http://localhost:5173`.
+This command will start the Next.js development server, typically on `http://localhost:3000`.
 
 ```bash
-npm run dev
+pnpm dev
+# or
+pnpm run dev
 ```
 
 You can now open the app in your browser and start building\!
 
------
+---
 
 ## Project Folder Structure
 
@@ -70,22 +73,23 @@ A high-level overview of the project's structure.
 
 ```
 color-space/
-├── public/               # Remember to make this folder too
+├── public/               # Static assets (images, SVGs)
 └── src/
-    ├── assets/           # Images, SVGs, fonts
-    ├── data/             # Static data (e.g., palettes)
+    ├── app/              # Next.js App Router pages & layout
+    │   ├── layout.tsx    # Root layout
+    │   ├── page.tsx      # Home page
+    │   └── globals.css   # Global styles
+    ├── components/       # Reusable UI components
+    │   ├── views/        # Main feature views (Creator, Blocks, etc.)
+    │   ├── form/         # Form elements (Input, Select)
+    │   └── ...
+    ├── data/             # Static data (palettes, gradients)
     ├── hooks/            # Custom React hooks
-    ├── pages/            # Main application views/components
-    ├── shared/           # Reusable UI components (buttons, inputs)
-    ├── styles/           # Global CSS (index.css)
-    ├── utils/            # Utility/helper functions
-    ├── App.jsx           # Main app component
-    ├── Colors.jsx        # The Actual Color Space
-    └── main.jsx          # Main React entry point
+    └── utils/            # Utility/helper functions
 ├── .gitignore
-├── index.html            # HTML entry point
+├── next.config.ts        # Next.js configuration
 ├── package.json
 ├── README.md             # This file
-├── tailwind.config.js    # Tailwind configuration
-└── vite.config.js        # Vite configuration
+├── tailwind.config.ts    # Tailwind configuration
+└── tsconfig.json         # TypeScript configuration
 ```

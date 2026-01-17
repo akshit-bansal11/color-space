@@ -1,0 +1,24 @@
+
+> temp_app@0.1.0 build F:\Career\Projects\Personal\color-space
+> next build
+
+▲ Next.js 16.1.3 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 11.1s
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/views/Convertor.tsx:5:23
+Type error: Could not find a declaration file for module 'tinycolor2'. 'F:/Career/Projects/Personal/color-space/node_modules/tinycolor2/esm/tinycolor.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/tinycolor2` if it exists or add a new declaration (.d.ts) file containing `declare module 'tinycolor2';`
+
+[0m [90m 3 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useMemo[33m,[39m useEffect } [36mfrom[39m [32m"react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { motion[33m,[39m [33mAnimatePresence[39m } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m tinycolor [36mfrom[39m [32m"tinycolor2"[39m[33m;[39m
+ [90m   |[39m                       [31m[1m^[22m[39m
+ [90m 6 |[39m [36mimport[39m { [33mFaArrowRightArrowLeft[39m } [36mfrom[39m [32m"react-icons/fa6"[39m[33m;[39m
+ [90m 7 |[39m
+ [90m 8 |[39m [36mimport[39m [33mInput[39m [36mfrom[39m [32m"../form/Input"[39m[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.
